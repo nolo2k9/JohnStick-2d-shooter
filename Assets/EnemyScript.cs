@@ -5,6 +5,19 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public int health;
+    [HideInInspector]
+    public Transform player;
+
+    public float speed;
+
+    public float timeBetweenAttacks;
+
+    public int damage;
+   
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     public void Damage(int damageAmount){
         //subtracting damage amount from health variable

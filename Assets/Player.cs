@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
    private Vector2 moveAmount;
 
+   public float health;
+
    private void Start()
    {   
         //attaching animator component to player character
@@ -43,5 +45,15 @@ public class Player : MonoBehaviour
    {
        rBody.MovePosition(rBody.position + moveAmount * Time.fixedDeltaTime);
    }
+
+   public void Damage(int damageAmount){
+        //subtracting damage amount from health variable
+        health -= damageAmount;
+        //if the health is less than or equal to 0 destory the enemy object
+        if(health<=0){
+            Destroy(gameObject);
+        }
+   }
+
 
 }
