@@ -7,6 +7,7 @@ public class projectile : MonoBehaviour
    public float speed;
    public float lifeTime;
    public GameObject explosion;
+   public int damage;
 
    private void Start()
 
@@ -24,5 +25,15 @@ public class projectile : MonoBehaviour
    {
         Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
+   }
+    //stores object that has been collided with 
+   private void OnTriggerEnter2D(Collider2D collision){
+       //if the enemys tag is collided with 
+       if(collision.tag =="Enemy")
+       {
+           collision.GetComponent<EnemyScript>().Damage(damage);
+           DestroyProjectile();
+       }
+
    }
 }
