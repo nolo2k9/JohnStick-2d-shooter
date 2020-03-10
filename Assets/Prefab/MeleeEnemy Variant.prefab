@@ -83,6 +83,9 @@ MonoBehaviour:
   speed: 7
   timeBetweenAttacks: 5
   damage: 1
+  pickupOdds: 20
+  pickups:
+  - {fileID: 9197060798615538567, guid: 87c2e5c91f6cf814f8cf953d26ee4620, type: 3}
   stopDistance: 3
   attackSpeed: 10
 --- !u!1001 &921846691444108755

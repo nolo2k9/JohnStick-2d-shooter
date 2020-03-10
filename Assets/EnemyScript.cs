@@ -13,6 +13,9 @@ public class EnemyScript : MonoBehaviour
     public float timeBetweenAttacks;
 
     public int damage;
+    // odds of enemy droping a pickup
+    public int pickupOdds;
+    public GameObject[] pickups;
    
     public virtual void Start()
     {
@@ -24,6 +27,16 @@ public class EnemyScript : MonoBehaviour
         health -= damageAmount;
         //if the health is less than or equal to 0 destory the enemy object
         if(health<=0){
+            //101 because the last number is excluded
+            int randomNum = Random.Range(0, 101);
+
+            if (randomNum < pickupOdds)
+            {
+                GameObject randomPickup = pickups[Random.Range(0, pickups.Length)];
+                //create a random pickup atht he enemys final position 
+                Instantiate(randomPickup, transform.position, transform.rotation);
+            }
+
             Destroy(gameObject);
         }
 

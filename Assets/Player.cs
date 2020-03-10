@@ -78,5 +78,23 @@ public class Player : MonoBehaviour
 
    }
 
+   public void HealPlayer(int amountOfHealth)
+   {   
+       //if the health is 5 don't add more (Maxed out)
+       if (health + amountOfHealth > 5 )
+       {
+           health = 5;
+       }
+       else 
+       {
+            //add to health 
+            health += amountOfHealth;
+       }
+
+        //update the health UI with new health amount 
+       UpdateHealthUI(health);
+      
+   }
+
 
 }
