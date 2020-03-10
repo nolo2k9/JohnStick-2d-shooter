@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {  //dictate how fast the player will move a
@@ -12,7 +13,11 @@ public class Player : MonoBehaviour
 
    private Vector2 moveAmount;
 
-   public float health;
+   public int health;
+    //array of images 
+   public Image[] healthUI;
+   public Sprite fullHealth;
+   public Sprite emptyHealth;
 
    private void Start()
    {   
@@ -49,10 +54,28 @@ public class Player : MonoBehaviour
    public void Damage(int damageAmount){
         //subtracting damage amount from health variable
         health -= damageAmount;
+        UpdateHealthUI(health);
         //if the health is less than or equal to 0 destory the enemy object
         if(health<=0){
             Destroy(gameObject);
         }
+   }
+
+   void UpdateHealthUI(int currentHealth){
+       /*
+            if i is less than current health
+            hearts[i] = full health 
+       */
+       for(int i =0; i<healthUI.Length; i++)
+       {
+            if (i<currentHealth)
+            {
+                healthUI[i].sprite = fullHealth;
+            }else {
+                healthUI[i].sprite = emptyHealth;
+            }
+       }
+
    }
 
 
