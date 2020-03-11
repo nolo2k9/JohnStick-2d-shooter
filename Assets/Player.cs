@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
    public Sprite fullHealth;
    public Sprite emptyHealth;
 
+   public Animator hurtAnimation;
+
    private void Start()
    {   
         //attaching animator component to player character
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour
         //subtracting damage amount from health variable
         health -= damageAmount;
         UpdateHealthUI(health);
+        hurtAnimation.SetTrigger("hurt");
         //if the health is less than or equal to 0 destory the enemy object
         if(health<=0){
             Destroy(gameObject);
