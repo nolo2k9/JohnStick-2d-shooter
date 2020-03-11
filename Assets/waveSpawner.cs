@@ -25,6 +25,9 @@ public class waveSpawner : MonoBehaviour
    private Transform player;
 
    private bool isFinished;
+    //game object for victor(boss)
+    public GameObject boss;
+    public Transform bossSpawnPoint;
 
    private void Start(){
        //finding the player by the assigned tag
@@ -83,7 +86,7 @@ public class waveSpawner : MonoBehaviour
                StartCoroutine(StartNextWave(currentWaveIndex));
            } else
            {
-               Debug.Log("Game completed");
+                Instantiate(boss, bossSpawnPoint.position, bossSpawnPoint.rotation);
            }
        }
    }

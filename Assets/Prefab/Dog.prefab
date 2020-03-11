@@ -157,7 +157,7 @@ MonoBehaviour:
   damage: 1
   pickupOdds: 5
   pickups:
-  - {fileID: 0}
+  - {fileID: 9197060798615538567, guid: 87c2e5c91f6cf814f8cf953d26ee4620, type: 3}
   stopDistance: 3
   attackSpeed: 8
 --- !u!50 &1680766382322130676

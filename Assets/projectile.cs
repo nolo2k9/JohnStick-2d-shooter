@@ -35,5 +35,13 @@ public class projectile : MonoBehaviour
            DestroyProjectile();
        }
 
+         if(collision.tag =="Viktor")
+       {
+           collision.GetComponent<Viktor>().Damage(damage);
+           DestroyProjectile();
+       }
+
+
+
    }
 }
