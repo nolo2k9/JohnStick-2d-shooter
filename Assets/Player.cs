@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
    public Sprite emptyHealth;
 
    public Animator hurtAnimation;
+   private SceneChange sceneChange;
 
    private void Start()
    {   
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     
        //setting rBody to the rigidbody 2d component which is attached to the player character 
        rBody = GetComponent<Rigidbody2D>();
+       sceneChange = FindObjectOfType<SceneChange>();
    }
    //gets called everyframe of the game
    private void Update()
@@ -61,6 +63,8 @@ public class Player : MonoBehaviour
         //if the health is less than or equal to 0 destory the enemy object
         if(health<=0){
             Destroy(gameObject);
+            sceneChange.LoadScene("DEAD");
+
         }
    }
 

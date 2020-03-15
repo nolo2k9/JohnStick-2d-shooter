@@ -14,10 +14,13 @@ public class Viktor : MonoBehaviour
 
     private Animator anim;
 
+    private SceneChange sceneChange;
+
     private void Start()
     {
         atHalfHealth = health /2;
         anim = GetComponent<Animator>();
+        sceneChange = FindObjectOfType<SceneChange>();
     }
 
     public void Damage(int damageAmount){
@@ -27,6 +30,8 @@ public class Viktor : MonoBehaviour
         //if the health is less than or equal to 0 destory the enemy object
         if(health<=0){
             Destroy(gameObject);
+            sceneChange.LoadScene("WIN");
+
         }
 
         if (health <= atHalfHealth)
