@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - patrolPoints
   - Viktor
+  - pause
   layers:
   - Default
   - TransparentFX

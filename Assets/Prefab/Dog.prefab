@@ -152,12 +152,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   player: {fileID: 0}
-  speed: 25
+  speed: 20
   timeBetweenAttacks: 3
   damage: 1
   pickupOdds: 5
   pickups:
   - {fileID: 9197060798615538567, guid: 87c2e5c91f6cf814f8cf953d26ee4620, type: 3}
+  stopDistance: 3
+  attackSpeed: 8
   stopDistance: 3
   attackSpeed: 8
 --- !u!50 &1680766382322130676

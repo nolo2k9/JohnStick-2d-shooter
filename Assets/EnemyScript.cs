@@ -59,7 +59,7 @@ public class EnemyScript : MonoBehaviour
                 //create a random pickup atht he enemys final position 
                 Instantiate(randomPickup, transform.position, transform.rotation);
             }
-
+            score.scoreValue += 10;
             Destroy(gameObject);
         }
 
