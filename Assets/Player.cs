@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
 
    private void Start()
    {   
+       
+       score.scoreValue =0;
+
         //attaching animator component to player character
         animator = GetComponent<Animator>();
     
@@ -64,7 +67,7 @@ public class Player : MonoBehaviour
         if(health<=0){
             Destroy(gameObject);
             sceneChange.LoadScene("DEAD");
-
+            
         }
    }
 
