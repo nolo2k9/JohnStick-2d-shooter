@@ -8,7 +8,7 @@ public class cursorAim : MonoBehaviour
     //hide cursor
     private void Start()
     {
-        Cursor.visible = false;
+        
     }
   
 

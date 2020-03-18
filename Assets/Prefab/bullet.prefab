@@ -98,7 +98,7 @@ MonoBehaviour:
   lifeTime: 1.5
   explosion: {fileID: 7428772316139126477, guid: 0d86484e7a685914fb0f07d492b8f8e0,
     type: 3}
-  soundObject: {fileID: 3368892362820827855, guid: 4b090df3cd9801c4091de982e5d2f41c,
+  soundObject: {fileID: 6392343017607499293, guid: 6b04a0c4e933f4641822616dbd08ca6e,
     type: 3}
   damage: 1
 --- !u!61 &8530871931866048175
