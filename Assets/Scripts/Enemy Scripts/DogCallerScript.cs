@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DogCallerScript : EnemyScript
+public class DogCallerScript : EnemyScript //derived from enemy script
 {
     public float minX;
     public float maxX;
     public float minY;
     public float maxY;
-    // store the position of the selected area on the map he will spawn dogs
+    // store the position of the selected area on the map he will spawn the dogs
     private Vector2 targetPosition;
     //reference to animator attached to dog caller so animations can be changed
     private Animator anim;
     //how much time the character must take before he can call a dog again
     public float timeBetweenSummons;
-    //
+    //How long to summon a dog
     private float summonTime;
     //EnenyScript variable
     public EnemyScript enemyToSummon;
@@ -30,7 +30,7 @@ public class DogCallerScript : EnemyScript
         //reference to animator script
         anim = GetComponent<Animator>();
 
-    }
+    }//Start
 
     private void Update()
     {
@@ -52,14 +52,15 @@ public class DogCallerScript : EnemyScript
                     summonTime = Time.time + timeBetweenSummons;
                     //set the summon animation
                     anim.SetTrigger("summon");
-                }
-            }
-        }
-    }
+                }//if
+            }//else
+        }//if/else
+    }//Update
 
     public void callDogs(){
         //if player is still alive
         if(player != null){
+            //summon an ememy 
             Instantiate(enemyToSummon, transform.position, transform.rotation);
 
         }

@@ -11,35 +11,46 @@ public class waveSpawner : MonoBehaviour
        public EnemyScript[] enemies;
        //hpw many enemies can be spawned inside the wave
        public int count;
-        //how length beween enemy spawns
+        //lentgh between enemy spawns
        public float timeBetweenSpawns;
 
    }
-
+   //Array to hold the number of waves
    public Wave[] waves;
+   //Array to hold the number of spawn points
    public Transform[] spawnPoints;
+   //Time between each wave
    public float timeBetweenWaves;
-
+   //Reference to wave object
    private Wave currentWave;
+   //Current wave number
    private int currentWaveIndex;
+   //Reference to player object
    private Transform player;
-
+   //Bool to handle if the waves are finshed
    private bool isFinished;
     //game object for victor(boss)
     public GameObject boss;
+    //Boss spawn pointa
     public Transform bossSpawnPoint;
 
    private void Start(){
+
        //finding the player by the assigned tag
        player = GameObject.FindGameObjectWithTag("Player").transform;
        //passing in the wave index into coroutine to start the wave
        StartCoroutine(StartNextWave(currentWaveIndex));
-   }
+
+   }//Start
+
     //wait an x ammount of seconds based on timeBetweenWaves and then cll another coroutine to spawn wave
    IEnumerator StartNextWave(int index){
+
        yield return new WaitForSeconds(timeBetweenWaves);
        StartCoroutine(SpawnWave(index));
-   }
+
+   }//StartNextWave
+
    IEnumerator SpawnWave (int index){
        currentWave = waves[index];
 
@@ -49,7 +60,7 @@ public class waveSpawner : MonoBehaviour
            if (player == null)
            {
                yield break; 
-           }
+           }//if
 
             //generate random enemy 
            EnemyScript randomEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
@@ -70,8 +81,9 @@ public class waveSpawner : MonoBehaviour
            //wait an allotted ammount of time 
            yield return new WaitForSeconds(currentWave.timeBetweenSpawns);
 
-       }
-   }
+       }//for
+
+   }//SpawnWave
 
    //Detect when enemies have died 
    private void Update()
@@ -87,7 +99,11 @@ public class waveSpawner : MonoBehaviour
            } else
            {
                 Instantiate(boss, bossSpawnPoint.position, bossSpawnPoint.rotation);
-           }
-       }
-   }
-}
+
+           }//if/else
+           
+       }//if
+
+   }//Update
+
+}//waveSpawner

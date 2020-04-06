@@ -35,8 +35,10 @@ public class Weapon : MonoBehaviour
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 //recalculate shot time current time + time between shots
                 shotTime = Time.time + timeBetweenShots;
-            }
+            }//if
 
-        }
-    }
-}
+        }//if
+
+    }//update
+
+}//Weapon
